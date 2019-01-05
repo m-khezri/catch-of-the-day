@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](http://wes.io/dgAQ/content)
 
-## Available Scripts
+# React For Beginners — [ReactForBeginners.com](https://ReactForBeginners.com)
 
-In the project directory, you can run:
+Starter files for the React For Beginners course. Come <a href="https://ReactForBeginners.com/">Learn React</a> with me!
 
-### `npm start`
+The code in this repo meant to be a reference point for anyone following along with the video course.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## To Start
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**Note** - one of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then.
 
-### `npm test`
+`cd` into `catch-of-the-day` and follow along with the videos
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Each numbered folder in `stepped-solutions` contains the files for the beginning of each correspondingly numbered video, should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
 
-### `npm run build`
+You are welcome to submit Pull Requests but I'd like to keep the code as similar as possible to the course content.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Code Use
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+You are welcome to use this code in your own applications. If you would like to use it for training purposes, please shoot me a message first to make sure it's okay.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Frequently Asked Questions
 
-### `npm run eject`
+#### :question: I can't see the React tab in my dev tools
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Restart your dev tools or your chrome browser entirely. They will only show up when you are viewing a React app - so make sure you test it on Facebook or another website that is running React. It won't work on your empty `main.js` file until you `import React from 'react'`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### :question: `npm start` doesn't update the app on file save, or doesn't run correctly.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+There may be a few different causes for this:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Webpack currently can't handle folder/file names that contain parentheses.
+* Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
 
-## Learn More
+#### :question: I get `permission_denied` warnings in my console when setting up Firebase
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Be sure to select "Realtime database" as as your database type inside Firebase. If you created your database as a Cloud Firestore type, you can change it in the Database tab.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### :question: I can't log in to the store after I deployed to Netlify/Apache
 
-### Code Splitting
+Firebase by default only allows logins from localhost or the Firebase website. You'll need to add your deploy URL to the Authorized Domains in the Sign-in method area of your Firebase console.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Changes In the 2018 RE-Record
 
-### Analyzing the Bundle Size
+In March 2018 I re-recorded this course. Here are the things that I've updated.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Upgrade to React Router 4 Final API
+* Use React 16.3
+* Move to external PropTypes Package
+* Use React's new Refs API, remove function refs
+* Remove all use of constructors and super() - use class properties instead
+* Better explain binding, use of `this` and component instances
+* Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x
+* Use official Firebase package for Auth as re-base is now only for data binding
+* Move promise based code to async/await
+* Show how to return multiple elements with React.Fragment
 
-### Making a Progressive Web App
+## htaccess
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Here is the .htaccess file we use in the apache deployment video
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+```
