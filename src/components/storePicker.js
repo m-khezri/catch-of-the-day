@@ -1,7 +1,7 @@
 import React from "react";
 import { getFunName } from "../helpers";
 
-class StorePicker extends React.Component {
+class storePicker extends React.Component {
   myInput = React.createRef();
 
   goToStore = event => {
@@ -29,4 +29,4 @@ class StorePicker extends React.Component {
   }
 }
 
-export default StorePicker;
+export default storePicker;
