@@ -3,6 +3,7 @@ import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
+import Fish from '../components/Fish';
 
 class App extends React.Component {
   state = {
@@ -28,7 +29,8 @@ class App extends React.Component {
         <div className="menu">
           <Header />
           <ul className="fishes">
-
+            {/* it will loop aroun the fish object and return every single fish (key) */}
+            {Object.keys(this.state.fishes).map(key => <Fish key={key} details={this.state.fishes[key]} />)}
           </ul>
         </div>
         <Order />
